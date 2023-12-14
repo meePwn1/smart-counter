@@ -1,16 +1,18 @@
-import { FC, InputHTMLAttributes } from 'react'
+import { ComponentProps, FC } from 'react'
 import style from './Input.module.scss'
 
-interface IInput extends InputHTMLAttributes<HTMLInputElement> {
-	error?: string
-}
+// Matt Pockokk
+type IInput = {
+	hasError: boolean
+} & ComponentProps<'input'>
 
-const Input: FC<IInput> = ({ error, ...props }) => {
-	const inputClasses = [style.input]
-	if (error) {
-		inputClasses.push(style.input__error)
+const Input: FC<IInput> = ({ hasError, ...props }) => {
+	const inputClassNames = [style.input]
+
+	if (hasError) {
+		inputClassNames.push(style.error)
 	}
-	return <input {...props} className={inputClasses.join(' ')} />
+	return <input {...props} type='number' className={inputClassNames.join(' ')} />
 }
 
 export default Input

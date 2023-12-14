@@ -1,11 +1,15 @@
 .input {
-	outline: none;
+	background-color: #fff;
+	color: #242424;
+	text-align: center;
+	font-weight: 700;
 	padding: 5px 15px;
-	border-radius: 16px;
-	font-size: 18px;
-	border: 2px solid transparent;
-	color: #5b5b5b;
-	&__error {
-		border-color: red;
-	}
+	max-width: 100px;
+	border: 1px solid #50dbd4;
+	border-radius: 5px;
+	outline: none;
+}
+
+.error {
+	border-color: red;
 }
