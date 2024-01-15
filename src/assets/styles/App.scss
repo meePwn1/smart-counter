@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:regular,700&display=swap');
+
+$mainColor: #242424;
+$fontFamily: 'Roboto';
+$fontSize: 16px;
+
+body {
+	background-color: #ecfccb;
+}
+
+.App {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100%;
+}
+
+@import 'reset';
+@import 'counter';

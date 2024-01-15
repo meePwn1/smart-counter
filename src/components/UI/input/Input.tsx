@@ -3,7 +3,7 @@ import style from './Input.module.scss'
 
 // Matt Pockokk
 type IInput = {
-	hasError: boolean
+	hasError?: boolean
 } & ComponentProps<'input'>
 
 const Input: FC<IInput> = ({ hasError, ...props }) => {
@@ -12,7 +12,7 @@ const Input: FC<IInput> = ({ hasError, ...props }) => {
 	if (hasError) {
 		inputClassNames.push(style.error)
 	}
-	return <input {...props} type='number' className={inputClassNames.join(' ')} />
+	return <input {...props} className={inputClassNames.join(' ')} />
 }
 
 export default Input

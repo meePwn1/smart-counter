@@ -1,0 +1,15 @@
+.display {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	span {
+		font-size: 20px;
+		font-weight: 700;
+	}
+}
+
+.setting {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
