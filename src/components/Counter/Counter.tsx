@@ -1,13 +1,17 @@
-import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { useState } from 'react'
 import ControlPanel from '../ControlPanel/ControlPanel'
-import DisplayPanel from '../Display/DisplayPanel'
+import DisplayPanel from '../DisplayPanel/DisplayPanel'
 
 const Counter = () => {
-	const setMode = useTypedSelector(state => state.counter.setMode)
+	const [setMode, setSetMode] = useState(false)
 
 	return (
 		<div className='counter'>
-			{setMode ? <ControlPanel /> : <DisplayPanel />}
+			{setMode ? (
+				<ControlPanel setMode={setSetMode} />
+			) : (
+				<DisplayPanel setMode={setSetMode} />
+			)}
 		</div>
 	)
 }

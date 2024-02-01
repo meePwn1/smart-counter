@@ -19,11 +19,6 @@
 	&:disabled:active {
 		transform: scale(1);
 	}
-	@media (any-hover: hover) {
-		&:hover:not([disabled]) {
-			background-color: #c3e8c6;
-		}
-	}
 }
 
 .rounded {

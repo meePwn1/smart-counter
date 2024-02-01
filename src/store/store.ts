@@ -1,14 +1,14 @@
-import throttle from 'lodash.throttle'
-import { legacy_createStore as createStore } from 'redux'
-import { loadStateFromLS, saveStateToLS } from '../utils/localStorageRedux'
-import { rootReducer } from './reducers'
+import { applyMiddleware, legacy_createStore as createStore } from 'redux'
+import { ThunkAction, thunk } from 'redux-thunk'
+import { CounterAction } from '../types/ICounter'
+import { RootState, rootReducer } from './reducers'
 
-const persistedState = loadStateFromLS()
+export const store = createStore(rootReducer, undefined, applyMiddleware(thunk))
 
-export const store = createStore(rootReducer, persistedState)
-
-store.subscribe(
-	throttle(() => {
-		saveStateToLS(store.getState())
-	}, 1000)
-)
+export type ActionTypes = CounterAction
+export type IThunk<ReturnType = void> = ThunkAction<
+	ReturnType,
+	RootState,
+	unknown,
+	ActionTypes
+>

@@ -1,12 +1,13 @@
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, FC, KeyboardEvent } from 'react'
 import Input from '../../UI/input/Input'
 import styles from './LabeledInput.module.scss'
 
 interface LabeledInputProps {
 	title: string
-	value: number
+	value: string
 	error: boolean
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void
+	onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void
 }
 
 const LabeledInput: FC<LabeledInputProps> = ({
@@ -14,11 +15,19 @@ const LabeledInput: FC<LabeledInputProps> = ({
 	value,
 	error,
 	onChange,
+	onKeyDown,
 }) => {
 	return (
 		<label className={styles.label}>
 			<span className={styles.span}>{title}</span>
-			<Input type='number' value={value} onChange={onChange} hasError={error} />
+			<Input
+				type='text'
+				value={value}
+				onChange={onChange}
+				hasError={error}
+				onKeyDown={onKeyDown}
+				inputMode='numeric'
+			/>
 		</label>
 	)
 }
